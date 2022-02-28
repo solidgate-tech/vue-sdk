@@ -1,0 +1,49 @@
+{
+  "name": "@solidgate/vue-sdk",
+  "files": [
+    "dist"
+  ],
+  "module": "./dist/solid-payment.es.js",
+  "exports": {
+    ".": {
+      "import": "./dist/solid-payment.es.js"
+    }
+  },
+  "private": true,
+  "version": "1.0.0",
+  "typings": "./dist/lib/index.d.ts",
+  "scripts": {
+    "start": "vite",
+    "build": "vite build && vue-tsc --emitDeclarationOnly",
+    "preview": "vite preview",
+    "lint": "eslint --ext .ts,vue --ignore-path .gitignore .",
+    "prepare": "husky install",
+    "prepublishOnly": "npm run build"
+  },
+  "peerDependencies": {
+    "vue": "^3.2.25"
+  },
+  "dependencies": {
+    "@solidgate/client-sdk-loader": "^1.0.0",
+    "vue3-styled-components": "^1.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^17.0.18",
+    "@typescript-eslint/eslint-plugin": "^5.11.0",
+    "@typescript-eslint/parser": "^5.11.0",
+    "@vitejs/plugin-vue": "^2.2.0",
+    "@vue/eslint-config-prettier": "^7.0.0",
+    "@vue/eslint-config-typescript": "^10.0.0",
+    "eslint": "^8.9.0",
+    "eslint-plugin-prettier": "^4.0.0",
+    "eslint-plugin-vue": "^8.4.1",
+    "husky": "^7.0.4",
+    "lint-staged": "^11.2.6",
+    "prettier": "^2.5.1",
+    "typescript": "^4.5.4",
+    "vite": "^2.8.0",
+    "vue-tsc": "^0.29.8",
+    "path": "^0.12.7",
+    "vue": "^3.2.25"
+  }
+}
