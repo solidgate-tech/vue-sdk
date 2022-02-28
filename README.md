@@ -13,7 +13,7 @@ npm i @solidagate/vue-sdk
 ## Usage
 Render a payment component in your vue3 project
 
-Component inputs and outputs are similar to described in the docs https://dev.solidgate.cm/developers/d
+Component inputs and outputs are similar to described in the docs https://dev.solidgate.com/developers/documentation/solid-payment-form
 ```vue
 <template>
   <Payment :merchant-data="merchantData" />
