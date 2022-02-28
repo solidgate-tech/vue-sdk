@@ -30,7 +30,7 @@ const merchantData: InitConfig['merchantData'] = {
 </script>
 ```
 
-In order to render google/apple button in custom container define Payment as async component and pass l
+In order to render google/apple button in custom container define Payment as async component and pass link to container element
 ```vue
 <template>
   <Payment

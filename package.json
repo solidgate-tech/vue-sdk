@@ -9,7 +9,7 @@
       "import": "./dist/solid-payment.es.js"
     }
   },
-  "version": "1.0.1",
+  "version": "1.0.2",
   "typings": "./dist/lib/index.d.ts",
   "scripts": {
     "start": "vite",
