@@ -63,8 +63,8 @@ const merchantData: InitConfig['merchantData'] = {
 1. cd vue-sdk
 2. npm i
 3. npm run start
-4. Navigate to `http://localhost:3000/`. The app will automatically reload if you change any of the 
-
+4. Navigate to `http://localhost:3000/`. 
+5. 
 ## Build
 
 1. cd vue-sdk

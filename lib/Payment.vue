@@ -8,16 +8,18 @@
 import { defineProps, onMounted, withDefaults, onUnmounted, ref } from 'vue'
 import styled, { ThemeProvider } from 'vue3-styled-components'
 import {
+  CustomStylesAppendedMessage,
   OrderStatusMessage,
   InteractionMessage,
+  RedirectMessage,
   MountedMessage,
   SuccessMessage,
   ResizeMessage,
+  VerifyMessage,
   SubmitMessage,
   ErrorMessage,
   FailMessage,
-  SdkMessage,
-  MessageType
+  CardMessage
 } from '@solidgate/client-sdk-loader'
 
 import PaymentProps from './interfaces/PaymentProps'
@@ -26,6 +28,7 @@ import { IFRAME_CONTAINER_ID } from './constants'
 
 import initClientSdk from './utils/initClientSdk'
 import onSubscribe from './utils/onSubscribe'
+import ClientSdkEventsProvider from './types/ClientSdkEventsProvider'
 
 const StyledPayment = styled.div`
   iframe {
@@ -49,14 +52,13 @@ const props = withDefaults(
     onSuccess?: (e: SuccessMessage) => void
     onFail?: (e: FailMessage) => void
     onSubmit?: (e: SubmitMessage) => void
-    onVerify?: (e: SdkMessage[MessageType.Verify]) => void
-    onCustomStylesAppended?: (
-      e: SdkMessage[MessageType.CustomStylesAppended]
-    ) => void
-    onFormRedirect?: (e: SdkMessage[MessageType.Redirect]) => void
+    onVerify?: (e: VerifyMessage) => void
+    onCustomStylesAppended?: (e: CustomStylesAppendedMessage) => void
+    onFormRedirect?: (e: RedirectMessage) => void
     onInteraction?: (e: InteractionMessage) => void
     onOrderStatus?: (e: OrderStatusMessage) => void
     onResize?: (e: ResizeMessage) => void
+    onCard?: (e: CardMessage) => void
   }>(),
   {
     onMounted: () => {},
@@ -69,7 +71,8 @@ const props = withDefaults(
     onFormRedirect: () => {},
     onInteraction: () => {},
     onOrderStatus: () => {},
-    onResize: () => {}
+    onResize: () => {},
+    onCard: () => {}
   }
 )
 
@@ -84,7 +87,7 @@ const config = {
   googlePayContainerRef: props.googlePayContainerRef,
   applePayContainerRef: props.applePayContainerRef
 }
-const callbacks = {
+const callbacks: ClientSdkEventsProvider = {
   onMounted: props.onMounted,
   onError: props.onError,
   onSuccess: props.onSuccess,
@@ -95,7 +98,8 @@ const callbacks = {
   onFormRedirect: props.onFormRedirect,
   onInteraction: props.onInteraction,
   onOrderStatus: props.onOrderStatus,
-  onResize: props.onResize
+  onResize: props.onResize,
+  onCard: props.onCard
 }
 
 onMounted(async () => {

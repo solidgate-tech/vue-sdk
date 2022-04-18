@@ -23,6 +23,7 @@ const onSubscribe = (
     props.onOrderStatus(e.data)
   )
   sdkInstanceValue.on(MessageType.Resize, (e) => props.onResize(e.data))
+  sdkInstanceValue.on(MessageType.Card, (e) => props.onCard(e.data))
 }
 
 export default onSubscribe
