@@ -30,6 +30,8 @@ import initClientSdk from './utils/initClientSdk'
 import onSubscribe from './utils/onSubscribe'
 import ClientSdkEventsProvider from './types/ClientSdkEventsProvider'
 
+import './boot'
+
 const StyledPayment = styled.div`
   iframe {
     border: none;
