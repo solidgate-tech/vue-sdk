@@ -18,8 +18,6 @@ const initClientSdk = async (
     width,
     styles,
     formParams,
-    googlePayButtonParams,
-    applePayButtonParams,
     googlePayContainerRef,
     applePayContainerRef
   } = props

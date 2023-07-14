@@ -10,12 +10,12 @@
       "import": "./dist/solid-payment.es.js"
     }
   },
-  "version": "1.4.0",
+  "version": "1.5.0",
   "typings": "./dist/lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {
     "start": "vite",
-    "build": "vite build && vue-tsc --emitDeclarationOnly",
+    "build": "vite build",
     "preview": "vite preview",
     "lint": "eslint --ext .ts,vue --ignore-path .gitignore .",
     "prepare": "husky install",
@@ -41,7 +41,7 @@
     "husky": "^7.0.4",
     "lint-staged": "^11.2.6",
     "prettier": "^2.5.1",
-    "typescript": "^4.5.4",
+    "typescript": "5.0.4",
     "vite": "^2.8.0",
     "vue-tsc": "^0.29.8",
     "path": "^0.12.7",

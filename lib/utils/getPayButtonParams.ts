@@ -27,15 +27,17 @@ function getPayButtonParams<
     delete payParams.containerId
   }
 
+  const syntheticId = payButtonIds[key].id
+
   if (container) {
-    if (container.id) {
+    if (container.id && container.id !== syntheticId) {
       console.warn(
         `Id attribute "${container.id}" of ${payButtonIds[key].title} container will be overridden`
       )
     }
 
-    payParams.containerId = payButtonIds[key].id
-    container.id = payParams.containerId
+    payParams.containerId = syntheticId
+    container.id = syntheticId
   }
 
   if (Object.keys(payParams).length) {

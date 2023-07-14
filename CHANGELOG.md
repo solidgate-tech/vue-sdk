@@ -1,3 +1,9 @@
+**1.5.0**
+
+Reinit form in case of init parameters change, declared emits in Vue way
+
+***
+
 **1.4.0**
 
 Added  **Cartes Bancaires** card brand support
