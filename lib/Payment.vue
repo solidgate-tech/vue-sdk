@@ -28,7 +28,8 @@ import {
   SubmitMessage,
   ErrorMessage,
   FailMessage,
-  CardMessage
+  CardMessage,
+  ClientSdkInstance
 } from '@solidgate/client-sdk-loader'
 
 import PaymentProps from './interfaces/PaymentProps'
@@ -100,6 +101,7 @@ const emit = defineEmits<{
   (e: 'orderStatus', payload: OrderStatusMessage): void
   (e: 'resize', payload: ResizeMessage): void
   (e: 'card', payload: CardMessage): void
+  (e: 'readyPaymentInstance', payload: ClientSdkInstance): void
 }>()
 
 const sdkInstance = ref()

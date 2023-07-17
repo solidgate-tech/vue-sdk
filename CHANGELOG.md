@@ -1,3 +1,9 @@
+**1.5.1**
+
+Declared ready-payment-instance emit in Vue way
+
+***
+
 **1.5.0**
 
 Reinit form in case of init parameters change, declared emits in Vue way
