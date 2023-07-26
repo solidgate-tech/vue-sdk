@@ -1,6 +1,6 @@
 {
   "name": "@solidgate/vue-sdk",
-  "repository": "https://bitbucket.org/solidgate/vue-sdk",
+  "repository": "https://github.com/solidgate-tech/vue-sdk",
   "files": [
     "dist"
   ],
@@ -10,7 +10,7 @@
       "import": "./dist/solid-payment.es.js"
     }
   },
-  "version": "1.5.1",
+  "version": "1.5.2",
   "typings": "./dist/lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {

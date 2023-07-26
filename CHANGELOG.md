@@ -1,3 +1,9 @@
+**1.5.2**
+
+Moved mirror repository to github, fix README.MD link to new documentation
+
+***
+
 **1.5.1**
 
 Declared ready-payment-instance emit in Vue way
