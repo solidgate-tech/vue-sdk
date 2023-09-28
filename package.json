@@ -10,7 +10,7 @@
       "import": "./dist/solid-payment.es.js"
     }
   },
-  "version": "1.5.2",
+  "version": "1.5.3",
   "typings": "./dist/lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {
@@ -25,7 +25,7 @@
     "vue": "^3.2.25"
   },
   "dependencies": {
-    "@solidgate/client-sdk-loader": "^1.6.0",
+    "@solidgate/client-sdk-loader": "^1.6.2",
     "vue3-styled-components": "^1.2.1"
   },
   "devDependencies": {
