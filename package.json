@@ -10,7 +10,7 @@
       "import": "./dist/solid-payment.es.js"
     }
   },
-  "version": "1.5.3",
+  "version": "1.6.0",
   "typings": "./dist/lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {
@@ -25,7 +25,7 @@
     "vue": "^3.2.25"
   },
   "dependencies": {
-    "@solidgate/client-sdk-loader": "^1.6.2",
+    "@solidgate/client-sdk-loader": "^1.7.0",
     "vue3-styled-components": "^1.2.1"
   },
   "devDependencies": {
@@ -40,11 +40,11 @@
     "eslint-plugin-vue": "^8.4.1",
     "husky": "^7.0.4",
     "lint-staged": "^11.2.6",
+    "path": "^0.12.7",
     "prettier": "^2.5.1",
     "typescript": "5.0.4",
     "vite": "^2.8.0",
-    "vue-tsc": "^0.29.8",
-    "path": "^0.12.7",
-    "vue": "^3.2.25"
+    "vue": "^3.2.25",
+    "vue-tsc": "^0.29.8"
   }
 }

@@ -1,6 +1,6 @@
 <template>
   <theme-provider :theme="{}">
-    <styled-payment :id="IFRAME_CONTAINER_ID" />
+    <styled-resign :id="IFRAME_CONTAINER_ID" />
   </theme-provider>
 </template>
 
@@ -28,21 +28,20 @@ import {
   SubmitMessage,
   ErrorMessage,
   FailMessage,
-  CardMessage,
   ClientSdkInstance
 } from '@solidgate/client-sdk-loader'
 
-import PaymentProps from './interfaces/PaymentProps'
+import ResignProps from './interfaces/ResignProps'
 
 import { IFRAME_CONTAINER_ID } from './constants'
 
-import initPaymentForm from './utils/initPaymentForm'
+import initResignForm from './utils/initResignForm'
 import onSubscribe from './utils/onSubscribe'
 import ClientSdkEventsProvider from './types/ClientSdkEventsProvider'
 
 import './boot'
 
-const StyledPayment = styled.div`
+const StyledResign = styled.div`
   iframe {
     border: none;
   }
@@ -50,15 +49,11 @@ const StyledPayment = styled.div`
 
 const props = withDefaults(
   defineProps<{
-    merchantData: PaymentProps['merchantData']
-    width?: PaymentProps['width']
-    styles?: PaymentProps['styles']
-    formParams?: PaymentProps['formParams']
-    googlePayButtonParams?: PaymentProps['googlePayButtonParams']
-    applePayButtonParams?: PaymentProps['applePayButtonParams']
-    googlePayContainerRef?: PaymentProps['googlePayContainerRef']
-    applePayContainerRef?: PaymentProps['applePayContainerRef']
-    onReadyPaymentInstance?: PaymentProps['onReadyPaymentInstance']
+    resignRequest: ResignProps['resignRequest']
+    container?: ResignProps['container']
+    appearance?: ResignProps['appearance']
+    styles?: ResignProps['styles']
+    onReadyResignInstance?: ResignProps['onReadyResignInstance']
     onMounted?: (e: MountedMessage) => void
     onError?: (e: ErrorMessage) => void
     onSuccess?: (e: SuccessMessage) => void
@@ -70,7 +65,6 @@ const props = withDefaults(
     onInteraction?: (e: InteractionMessage) => void
     onOrderStatus?: (e: OrderStatusMessage) => void
     onResize?: (e: ResizeMessage) => void
-    onCard?: (e: CardMessage) => void
   }>(),
   {
     onMounted: () => {},
@@ -83,8 +77,7 @@ const props = withDefaults(
     onFormRedirect: () => {},
     onInteraction: () => {},
     onOrderStatus: () => {},
-    onResize: () => {},
-    onCard: () => {}
+    onResize: () => {}
   }
 )
 
@@ -100,24 +93,19 @@ const emit = defineEmits<{
   (e: 'interaction', payload: InteractionMessage): void
   (e: 'orderStatus', payload: OrderStatusMessage): void
   (e: 'resize', payload: ResizeMessage): void
-  (e: 'card', payload: CardMessage): void
-  (e: 'readyPaymentInstance', payload: ClientSdkInstance): void
+  (e: 'readyResignInstance', payload: ClientSdkInstance): void
 }>()
 
 const sdkInstance = ref()
 
-const config = {
-  merchantData: props.merchantData,
-  width: props.width,
-  styles: props.styles,
-  formParams: props.formParams,
-  googlePayButtonParams: props.googlePayButtonParams,
-  applePayButtonParams: props.applePayButtonParams,
-  googlePayContainerRef: props.googlePayContainerRef,
-  applePayContainerRef: props.applePayContainerRef
+const resignConfig = {
+  resignRequest: props.resignRequest,
+  container: props.container,
+  appearance: props.appearance,
+  styles: props.styles
 }
 
-const callbacks: ClientSdkEventsProvider = {
+const callbacks: Omit<ClientSdkEventsProvider, 'onCard'> = {
   onMounted: (e) => props.onMounted && props.onMounted(e),
   onError: (e) => props.onError && props.onError(e),
   onSuccess: (e) => props.onSuccess && props.onSuccess(e),
@@ -129,16 +117,15 @@ const callbacks: ClientSdkEventsProvider = {
   onFormRedirect: (e) => props.onFormRedirect && props.onFormRedirect(e),
   onInteraction: (e) => props.onInteraction && props.onInteraction(e),
   onOrderStatus: (e) => props.onOrderStatus && props.onOrderStatus(e),
-  onResize: (e) => props.onResize && props.onResize(e),
-  onCard: (e) => props.onCard && props.onCard(e)
+  onResize: (e) => props.onResize && props.onResize(e)
 }
 
 onMounted(async () => {
-  sdkInstance.value = await initPaymentForm(config)
+  sdkInstance.value = await initResignForm(resignConfig)
 
   if (sdkInstance.value) {
     onSubscribe(sdkInstance.value, callbacks)
-    props.onReadyPaymentInstance?.(sdkInstance.value)
+    props.onReadyResignInstance?.(sdkInstance.value)
   }
 })
 
@@ -147,11 +134,11 @@ onUnmounted(() => {
 })
 
 watch(
-  Object.values(config).map((value) =>
+  Object.values(resignConfig).map((value) =>
     isReactive(value) ? value : () => value
   ),
   async () => {
-    sdkInstance.value = await initPaymentForm(config)
+    sdkInstance.value = await initResignForm(resignConfig)
   }
 )
 </script>

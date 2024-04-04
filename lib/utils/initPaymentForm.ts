@@ -10,7 +10,7 @@ import { IFRAME_CONTAINER_ID } from '../constants'
 
 import getPayButtonParams from './getPayButtonParams'
 
-const initClientSdk = async (
+const initPaymentForm = async (
   props: PaymentProps
 ): Promise<ClientSdkInstance> => {
   const {
@@ -59,4 +59,4 @@ const initClientSdk = async (
   return clientSdk.init(initConfig)
 }
 
-export default initClientSdk
+export default initPaymentForm

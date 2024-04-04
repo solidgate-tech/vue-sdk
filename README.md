@@ -11,6 +11,9 @@ npm i @solidagate/vue-sdk
 ``` 
 
 ## Usage
+
+### Payment form
+
 Render a payment component in your vue3 project
 
 Component inputs and outputs are described in the docs 
@@ -56,6 +59,29 @@ const merchantData: InitConfig['merchantData'] = {
   merchant: '<<--YOUR MERCHANT ID-->>',
   signature: '<<--YOUR SIGNATURE OF THE REQUEST-->>',
   paymentIntent: '<<--YOUR PAYMENT INTENT-->>'
+}
+</script>
+```
+
+### Resign form
+
+Render a resign component in your vue3 project
+
+Component inputs and outputs are described in the docs
+https://docs.solidgate.com/payments/integrate/payment-form/resign-payment-form/
+
+```vue
+<template>
+  <Resign :resign-request="resignRequest" />
+</template>
+
+<script lang="ts" setup>
+import { Resign, ResignRequest } from '@solidgate/vue-sdk'
+
+const resignRequest: ResignRequest = {
+  merchant: '<<--YOUR MERCHANT ID-->>',
+  signature: '<<--YOUR SIGNATURE OF THE REQUEST-->>',
+  resignIntent: '<<--YOUR RESIGN INTENT-->>'
 }
 </script>
 ```
