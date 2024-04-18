@@ -11,6 +11,7 @@ interface ResignProps extends Partial<Omit<ClientSdkEventsProvider, 'onCard'>> {
   appearance?: ResignFormConfig['appearance']
   styles?: ResignFormConfig['styles']
   onReadyResignInstance?: (resignInstance: ClientSdkInstance) => void
+  onResignInitFailed?: (error: Error) => void
 }
 
 export default ResignProps

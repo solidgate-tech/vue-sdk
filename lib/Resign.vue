@@ -54,6 +54,7 @@ const props = withDefaults(
     appearance?: ResignProps['appearance']
     styles?: ResignProps['styles']
     onReadyResignInstance?: ResignProps['onReadyResignInstance']
+    onResignInitFailed?: ResignProps['onResignInitFailed']
     onMounted?: (e: MountedMessage) => void
     onError?: (e: ErrorMessage) => void
     onSuccess?: (e: SuccessMessage) => void
@@ -94,6 +95,7 @@ const emit = defineEmits<{
   (e: 'orderStatus', payload: OrderStatusMessage): void
   (e: 'resize', payload: ResizeMessage): void
   (e: 'readyResignInstance', payload: ClientSdkInstance): void
+  (e: 'resignInitFailed', payload: Error): void
 }>()
 
 const sdkInstance = ref()
@@ -121,11 +123,15 @@ const callbacks: Omit<ClientSdkEventsProvider, 'onCard'> = {
 }
 
 onMounted(async () => {
-  sdkInstance.value = await initResignForm(resignConfig)
+  try {
+    sdkInstance.value = await initResignForm(resignConfig)
 
-  if (sdkInstance.value) {
-    onSubscribe(sdkInstance.value, callbacks)
-    props.onReadyResignInstance?.(sdkInstance.value)
+    if (sdkInstance.value) {
+      onSubscribe(sdkInstance.value, callbacks)
+      props.onReadyResignInstance?.(sdkInstance.value)
+    }
+  } catch (error) {
+    props.onResignInitFailed?.(error)
   }
 })
 
@@ -138,7 +144,11 @@ watch(
     isReactive(value) ? value : () => value
   ),
   async () => {
-    sdkInstance.value = await initResignForm(resignConfig)
+    try {
+      sdkInstance.value = await initResignForm(resignConfig)
+    } catch (error) {
+      props.onResignInitFailed?.(error)
+    }
   }
 )
 </script>

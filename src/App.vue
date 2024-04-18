@@ -34,6 +34,7 @@
       @mounted="log"
       @interaction="log"
       @resize="log"
+      @resignInitFailed="log"
     />
     <button @click="toggleResignFormConfig">
       Update resign form config

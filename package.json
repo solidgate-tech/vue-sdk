@@ -10,7 +10,7 @@
       "import": "./dist/solid-payment.es.js"
     }
   },
-  "version": "1.7.0",
+  "version": "1.8.0",
   "typings": "./dist/lib/index.d.ts",
   "license": "Apache-2.0",
   "scripts": {
