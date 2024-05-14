@@ -9,7 +9,7 @@ export default defineConfig({
     lib: {
       entry: path.resolve(__dirname, 'lib/index.ts'),
       name: 'solid-payment',
-      fileName: (format) => `solid-payment.${format}.js`,
+      fileName: (format) => `index.${format}.js`,
       formats: ['es']
     },
     rollupOptions: {

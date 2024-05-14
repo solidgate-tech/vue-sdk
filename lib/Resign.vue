@@ -6,16 +6,7 @@
 </template>
 
 <script lang="ts" setup>
-import {
-  defineProps,
-  defineEmits,
-  onMounted,
-  withDefaults,
-  onUnmounted,
-  ref,
-  watch,
-  isReactive
-} from 'vue'
+import { onMounted, onUnmounted, ref, watch, isReactive } from 'vue'
 import {
   CustomStylesAppendedMessage,
   OrderStatusMessage,

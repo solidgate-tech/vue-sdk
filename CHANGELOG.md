@@ -1,3 +1,11 @@
+**1.10.0**
+Added package type declarations
+***
+
+**1.9.0**
+Removed obsolete dependencies, fixed vulnerabilities 
+***
+
 **1.8.0**
 
 Add `onResignInitFailed` to Resign component to allow handling the case when the resign form initialization failed
