@@ -1,7 +1,8 @@
 <template>
-  <theme-provider :theme="{}">
-    <styled-resign :id="IFRAME_CONTAINER_ID" />
-  </theme-provider>
+  <div
+    :id="IFRAME_CONTAINER_ID"
+    class="payment-form-container"
+  />
 </template>
 
 <script lang="ts" setup>
@@ -15,7 +16,6 @@ import {
   watch,
   isReactive
 } from 'vue'
-import styled, { ThemeProvider } from 'vue3-styled-components'
 import {
   CustomStylesAppendedMessage,
   OrderStatusMessage,
@@ -40,12 +40,6 @@ import onSubscribe from './utils/onSubscribe'
 import ClientSdkEventsProvider from './types/ClientSdkEventsProvider'
 
 import './boot'
-
-const StyledResign = styled.div`
-  iframe {
-    border: none;
-  }
-`
 
 const props = withDefaults(
   defineProps<{
@@ -131,7 +125,7 @@ onMounted(async () => {
       props.onReadyResignInstance?.(sdkInstance.value)
     }
   } catch (error) {
-    props.onResignInitFailed?.(error)
+    props.onResignInitFailed?.(error as Error)
   }
 })
 
@@ -147,8 +141,14 @@ watch(
     try {
       sdkInstance.value = await initResignForm(resignConfig)
     } catch (error) {
-      props.onResignInitFailed?.(error)
+      props.onResignInitFailed?.(error as Error)
     }
   }
 )
 </script>
+
+<style scoped>
+.payment-form-container :deep(iframe) {
+  border: none;
+}
+</style>

@@ -25,8 +25,7 @@
     "vue": "^3.2.25"
   },
   "dependencies": {
-    "@solidgate/client-sdk-loader": "^1.8.0",
-    "vue3-styled-components": "^1.2.1"
+    "@solidgate/client-sdk-loader": "^1.8.0"
   },
   "devDependencies": {
     "@types/node": "^17.0.18",
