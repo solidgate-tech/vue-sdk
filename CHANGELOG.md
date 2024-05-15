@@ -1,9 +1,20 @@
+**1.10.1**
+
+Update Order Status error interface:
+- `error.message: string` -> `error.messages: string[]`
+
+***
+
 **1.10.0**
+
 Added package type declarations
+
 ***
 
 **1.9.0**
-Removed obsolete dependencies, fixed vulnerabilities 
+
+Removed obsolete dependencies, fixed vulnerabilities
+
 ***
 
 **1.8.0**
