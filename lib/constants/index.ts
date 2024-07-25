@@ -8,8 +8,13 @@ const APPLE_PAY_BUTTON_CONTAINER_ID = `apple-pay-button-container_#${
   Math.random() * 10000
 }`
 
+const PAYPAL_BUTTON_CONTAINER_ID = `paypal-button-container_#${
+  Math.random() * 10000
+}`
+
 export {
   IFRAME_CONTAINER_ID,
   GOOGLE_PAY_BUTTON_CONTAINER_ID,
-  APPLE_PAY_BUTTON_CONTAINER_ID
+  APPLE_PAY_BUTTON_CONTAINER_ID,
+  PAYPAL_BUTTON_CONTAINER_ID
 }

@@ -35,16 +35,18 @@ const merchantData: InitConfig['merchantData'] = {
 </script>
 ```
 
-In order to render google/apple button in custom container define Payment as async component and pass link to container element
+In order to render google/apple/paypal button in custom container define Payment as async component and pass link to container element
 ```vue
 <template>
   <Payment
     :merchan-data="merchantData"
     :google-pay-container-ref="googleButton"
     :apple-pay-container-ref="appleButton"
+    :paypal-container-ref="paypalButton"
   />
   <div ref="googleButton" />
   <div ref="appleButton" />
+  <div ref="paypalButton" />
 </template>
 
 <script lang="ts" setup>
@@ -54,6 +56,7 @@ const Payment = defineAsyncComponent(() => import('@solidgate/vue-sdk'))
 
 const googleButton = ref<HTMLDivElement>()
 const appleButton = ref<HTMLDivElement>()
+const paypalButton = ref<HTMLDivElement>()
 
 const merchantData: InitConfig['merchantData'] = {
   merchant: '<<--YOUR MERCHANT ID-->>',

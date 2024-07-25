@@ -12,14 +12,15 @@ import getPayButtonParams from './getPayButtonParams'
 
 const initPaymentForm = async (
   props: PaymentProps
-): Promise<ClientSdkInstance> => {
+): Promise<ClientSdkInstance | null> => {
   const {
     merchantData,
     width,
     styles,
     formParams,
     googlePayContainerRef,
-    applePayContainerRef
+    applePayContainerRef,
+    paypalContainerRef
   } = props
 
   if (!merchantData) {
@@ -27,6 +28,10 @@ const initPaymentForm = async (
   }
 
   const clientSdk = await SdkLoader.load()
+
+  if (!clientSdk) {
+    return null
+  }
 
   const initConfig: InitConfig = {
     merchantData,
@@ -54,6 +59,15 @@ const initPaymentForm = async (
   )
   if (appleButtonParams) {
     initConfig.applePayButtonParams = appleButtonParams
+  }
+
+  const paypalButtonParams = getPayButtonParams(
+    props,
+    'paypalButtonParams',
+    paypalContainerRef
+  )
+  if (paypalButtonParams) {
+    initConfig.paypalButtonParams = paypalButtonParams
   }
 
   return clientSdk.init(initConfig)

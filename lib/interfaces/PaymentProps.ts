@@ -12,8 +12,10 @@ interface PaymentProps extends Partial<ClientSdkEventsProvider> {
     'containerId'
   >
   applePayButtonParams?: Omit<InitConfig['applePayButtonParams'], 'containerId'>
+  paypalButtonParams?: Omit<InitConfig['paypalButtonParams'], 'containerId'>
   googlePayContainerRef?: HTMLDivElement
   applePayContainerRef?: HTMLDivElement
+  paypalContainerRef?: HTMLDivElement
   onReadyPaymentInstance?: (paymentInstance: ClientSdkInstance) => void
 }
 

@@ -12,12 +12,16 @@ const initResignForm = async (config: {
   appearance?: ResignFormConfig['appearance']
   container?: ResignFormConfig['container']
   styles?: ResignFormConfig['styles']
-}): Promise<ClientSdkInstance> => {
+}): Promise<ClientSdkInstance | null> => {
   if (!config.resignRequest) {
     throw new Error("Attribute 'resignRequest' is required")
   }
 
   const clientSdk = await SdkLoader.load()
+
+  if (!clientSdk) {
+    return null
+  }
 
   const { appearance, styles, container } = config
 
