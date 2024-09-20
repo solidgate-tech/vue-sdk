@@ -9,6 +9,7 @@
 import { onMounted, onUnmounted, ref, watch, isReactive } from 'vue'
 import {
   CustomStylesAppendedMessage,
+  PaymentDetailsMessage,
   OrderStatusMessage,
   InteractionMessage,
   RedirectMessage,
@@ -46,6 +47,7 @@ const props = withDefaults(
     applePayContainerRef?: PaymentProps['applePayContainerRef']
     paypalContainerRef?: PaymentProps['paypalContainerRef']
     onReadyPaymentInstance?: PaymentProps['onReadyPaymentInstance']
+    onPaymentDetails?: (e: PaymentDetailsMessage) => void
     onMounted?: (e: MountedMessage) => void
     onError?: (e: ErrorMessage) => void
     onSuccess?: (e: SuccessMessage) => void
@@ -67,6 +69,7 @@ const props = withDefaults(
     onSubmit: () => {},
     onVerify: () => {},
     onCustomStylesAppended: () => {},
+    onPaymentDetails: () => {},
     onFormRedirect: () => {},
     onInteraction: () => {},
     onOrderStatus: () => {},
@@ -83,6 +86,7 @@ const emit = defineEmits<{
   (e: 'submit', payload: SubmitMessage): void
   (e: 'verify', payload: VerifyMessage): void
   (e: 'customStylesAppended', payload: CustomStylesAppendedMessage): void
+  (e: 'paymentDetails', payload: PaymentDetailsMessage): void
   (e: 'formRedirect', payload: RedirectMessage): void
   (e: 'interaction', payload: InteractionMessage): void
   (e: 'orderStatus', payload: OrderStatusMessage): void
@@ -115,6 +119,7 @@ const callbacks: ClientSdkEventsProvider = {
   onVerify: (e) => props.onVerify && props.onVerify(e),
   onCustomStylesAppended: (e) =>
     props.onCustomStylesAppended && props.onCustomStylesAppended(e),
+  onPaymentDetails: (e) => props.onPaymentDetails && props.onPaymentDetails(e),
   onFormRedirect: (e) => props.onFormRedirect && props.onFormRedirect(e),
   onInteraction: (e) => props.onInteraction && props.onInteraction(e),
   onOrderStatus: (e) => props.onOrderStatus && props.onOrderStatus(e),

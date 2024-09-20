@@ -9,6 +9,7 @@
 import { onMounted, onUnmounted, ref, watch, isReactive } from 'vue'
 import {
   CustomStylesAppendedMessage,
+  PaymentDetailsMessage,
   OrderStatusMessage,
   InteractionMessage,
   RedirectMessage,
@@ -47,6 +48,7 @@ const props = withDefaults(
     onSubmit?: (e: SubmitMessage) => void
     onVerify?: (e: VerifyMessage) => void
     onCustomStylesAppended?: (e: CustomStylesAppendedMessage) => void
+    onPaymentDetails?: (e: PaymentDetailsMessage) => void
     onFormRedirect?: (e: RedirectMessage) => void
     onInteraction?: (e: InteractionMessage) => void
     onOrderStatus?: (e: OrderStatusMessage) => void
@@ -60,6 +62,7 @@ const props = withDefaults(
     onSubmit: () => {},
     onVerify: () => {},
     onCustomStylesAppended: () => {},
+    onPaymentDetails: () => {},
     onFormRedirect: () => {},
     onInteraction: () => {},
     onOrderStatus: () => {},
@@ -75,6 +78,7 @@ const emit = defineEmits<{
   (e: 'submit', payload: SubmitMessage): void
   (e: 'verify', payload: VerifyMessage): void
   (e: 'customStylesAppended', payload: CustomStylesAppendedMessage): void
+  (e: 'paymentDetails', payload: PaymentDetailsMessage): void
   (e: 'formRedirect', payload: RedirectMessage): void
   (e: 'interaction', payload: InteractionMessage): void
   (e: 'orderStatus', payload: OrderStatusMessage): void
@@ -104,7 +108,8 @@ const callbacks: Omit<ClientSdkEventsProvider, 'onCard'> = {
   onFormRedirect: (e) => props.onFormRedirect && props.onFormRedirect(e),
   onInteraction: (e) => props.onInteraction && props.onInteraction(e),
   onOrderStatus: (e) => props.onOrderStatus && props.onOrderStatus(e),
-  onResize: (e) => props.onResize && props.onResize(e)
+  onResize: (e) => props.onResize && props.onResize(e),
+  onPaymentDetails: (e) => props.onPaymentDetails && props.onPaymentDetails(e)
 }
 
 onMounted(async () => {
