@@ -1,6 +1,6 @@
 {
   "name": "@solidgate/vue-sdk",
-  "version": "1.13.0",
+  "version": "1.14.0",
   "repository": "https://github.com/solidgate-tech/vue-sdk",
   "files": [
     "dist"
@@ -28,7 +28,7 @@
     "vue": "^3.2.25"
   },
   "dependencies": {
-    "@solidgate/client-sdk-loader": "^1.12.0"
+    "@solidgate/client-sdk-loader": "^1.14.0"
   },
   "devDependencies": {
     "@babel/types": "^7.24.5",
