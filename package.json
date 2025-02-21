@@ -1,6 +1,6 @@
 {
   "name": "@solidgate/vue-sdk",
-  "version": "1.15.0",
+  "version": "1.15.1",
   "repository": "https://github.com/solidgate-tech/vue-sdk",
   "files": [
     "dist"

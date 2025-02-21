@@ -1,3 +1,7 @@
+**1.15.1**
+
+Fixed typo in the README.md
+
 **1.15.0**
 
 Added new fields to the `Card` event: `bin`, `cardType`, `bank`

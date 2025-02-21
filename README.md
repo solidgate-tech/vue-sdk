@@ -7,7 +7,7 @@ This is a wrapper for Solidgate Client SDK
 Run inside Vue3 project
 
 ```
-npm i @solidagate/vue-sdk
+npm i @solidgate/vue-sdk
 ``` 
 
 ## Usage
