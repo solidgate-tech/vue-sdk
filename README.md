@@ -35,6 +35,8 @@ Check our
   </tr>
 </table>
 
+<br>
+
 ## Installation
 
 Run the following command inside your Vue 3 project:
@@ -42,6 +44,8 @@ Run the following command inside your Vue 3 project:
 ```
 npm i @solidgate/vue-sdk
 ``` 
+
+<br>
 
 ## Usage
 
@@ -120,6 +124,8 @@ const resignRequest: ResignRequest = {
 </script>
 ```
 
+<br>
+
 ## Development server
 
 Vue3 + Typescript + Vite
@@ -128,6 +134,8 @@ Vue3 + Typescript + Vite
 2. `npm i`
 3. `npm run start`
 4. `Navigate to http://localhost:3000/`
+
+<br>
 
 ## Build
 
