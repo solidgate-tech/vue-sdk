@@ -1,3 +1,7 @@
+**1.15.2**
+
+Updated README.md
+
 **1.15.1**
 
 Fixed typo in the README.md
