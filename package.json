@@ -28,7 +28,7 @@
     "vue": "^3.2.25"
   },
   "dependencies": {
-    "@solidgate/client-sdk-loader": "^1.16.0"
+    "@solidgate/client-sdk-loader": "^1.17.0"
   },
   "devDependencies": {
     "@babel/types": "^7.24.5",
