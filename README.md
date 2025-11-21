@@ -143,3 +143,9 @@ Vue3 + Typescript + Vite
 2. `npm run build`
 3. `cd dist`
 4. solid-payment.es.js is a js bundle
+
+---
+
+Looking for help? <a href="https://support.solidgate.com/support/tickets/new" target="_blank">Contact us</a> <br>
+Want to contribute? <a href="https://github.com/solidgate-tech/vue-sdk/pulls" target="_blank">Submit a pull request</a>
+
