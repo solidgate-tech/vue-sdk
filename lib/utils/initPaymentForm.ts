@@ -20,7 +20,8 @@ const initPaymentForm = async (
     formParams,
     googlePayContainerRef,
     applePayContainerRef,
-    paypalContainerRef
+    paypalContainerRef,
+    pixContainerRef
   } = props
 
   if (!merchantData) {
@@ -68,6 +69,15 @@ const initPaymentForm = async (
   )
   if (paypalButtonParams) {
     initConfig.paypalButtonParams = paypalButtonParams
+  }
+
+  const pixButtonParams = getPayButtonParams(
+    props,
+    'pixButtonParams',
+    pixContainerRef
+  )
+  if (pixButtonParams) {
+    initConfig.pixButtonParams = pixButtonParams
   }
 
   return clientSdk.init(initConfig)

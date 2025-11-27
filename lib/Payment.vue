@@ -43,9 +43,11 @@ const props = withDefaults(
     googlePayButtonParams?: PaymentProps['googlePayButtonParams']
     applePayButtonParams?: PaymentProps['applePayButtonParams']
     paypalButtonParams?: PaymentProps['paypalButtonParams']
+    pixButtonParams?: PaymentProps['pixButtonParams']
     googlePayContainerRef?: PaymentProps['googlePayContainerRef']
     applePayContainerRef?: PaymentProps['applePayContainerRef']
     paypalContainerRef?: PaymentProps['paypalContainerRef']
+    pixContainerRef?: PaymentProps['pixContainerRef']
     onReadyPaymentInstance?: PaymentProps['onReadyPaymentInstance']
     onPaymentDetails?: (e: PaymentDetailsMessage) => void
     onMounted?: (e: MountedMessage) => void
@@ -105,9 +107,11 @@ const config = {
   googlePayButtonParams: props.googlePayButtonParams,
   applePayButtonParams: props.applePayButtonParams,
   paypalButtonParams: props.paypalButtonParams,
+  pixButtonParams: props.pixButtonParams,
   googlePayContainerRef: props.googlePayContainerRef,
   applePayContainerRef: props.applePayContainerRef,
-  paypalContainerRef: props.paypalContainerRef
+  paypalContainerRef: props.paypalContainerRef,
+  pixContainerRef: props.pixContainerRef
 }
 
 const callbacks: ClientSdkEventsProvider = {

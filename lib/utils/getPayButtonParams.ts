@@ -3,7 +3,8 @@ import { InitConfig } from '@solidgate/client-sdk-loader'
 import {
   GOOGLE_PAY_BUTTON_CONTAINER_ID,
   APPLE_PAY_BUTTON_CONTAINER_ID,
-  PAYPAL_BUTTON_CONTAINER_ID
+  PAYPAL_BUTTON_CONTAINER_ID,
+  PIX_BUTTON_CONTAINER_ID
 } from '../constants'
 
 const payButtonIds = {
@@ -18,6 +19,10 @@ const payButtonIds = {
   paypalButtonParams: {
     title: 'PayPal',
     id: PAYPAL_BUTTON_CONTAINER_ID
+  },
+  pixButtonParams: {
+    title: 'Pix',
+    id: PIX_BUTTON_CONTAINER_ID
   }
 }
 
@@ -26,6 +31,7 @@ function getPayButtonParams<
     | 'googlePayButtonParams'
     | 'applePayButtonParams'
     | 'paypalButtonParams'
+    | 'pixButtonParams'
 > (config: InitConfig, key: T, container: HTMLElement | undefined) {
   const payParams = {
     ...(config[key] || {})
