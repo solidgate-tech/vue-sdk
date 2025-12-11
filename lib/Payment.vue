@@ -44,10 +44,12 @@ const props = withDefaults(
     applePayButtonParams?: PaymentProps['applePayButtonParams']
     paypalButtonParams?: PaymentProps['paypalButtonParams']
     pixButtonParams?: PaymentProps['pixButtonParams']
+    bizumButtonParams?: PaymentProps['bizumButtonParams']
     googlePayContainerRef?: PaymentProps['googlePayContainerRef']
     applePayContainerRef?: PaymentProps['applePayContainerRef']
     paypalContainerRef?: PaymentProps['paypalContainerRef']
     pixContainerRef?: PaymentProps['pixContainerRef']
+    bizumContainerRef?: PaymentProps['bizumContainerRef']
     onReadyPaymentInstance?: PaymentProps['onReadyPaymentInstance']
     onPaymentDetails?: (e: PaymentDetailsMessage) => void
     onMounted?: (e: MountedMessage) => void
@@ -108,10 +110,12 @@ const config = {
   applePayButtonParams: props.applePayButtonParams,
   paypalButtonParams: props.paypalButtonParams,
   pixButtonParams: props.pixButtonParams,
+  bizumButtonParams: props.bizumButtonParams,
   googlePayContainerRef: props.googlePayContainerRef,
   applePayContainerRef: props.applePayContainerRef,
   paypalContainerRef: props.paypalContainerRef,
-  pixContainerRef: props.pixContainerRef
+  pixContainerRef: props.pixContainerRef,
+  bizumContainerRef: props.bizumContainerRef
 }
 
 const callbacks: ClientSdkEventsProvider = {
