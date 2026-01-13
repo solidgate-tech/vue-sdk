@@ -2,7 +2,7 @@
 
 This repository is a Vue 3 wrapper for the Solidgate Client Software Development Kit (SDK).
 
-It supports rendering payment forms and resign forms, including custom container elements for <a href="https://docs.solidgate.com/payments/integrate/payment-form/google-pay-button/" target="_blank">Google Pay</a>, <a href="https://docs.solidgate.com/payments/integrate/payment-form/apple-pay-button/" target="_blank">Apple Pay</a>, or <a href="https://docs.solidgate.com/payments/integrate/payment-form/paypal-button/" target="_blank">PayPal</a> buttons.
+It supports rendering payment forms and resign forms, including custom container elements for <a href="https://docs.solidgate.com/payments/integrate/payment-form/google-pay-button/" target="_blank">Google Pay</a>, <a href="https://docs.solidgate.com/payments/integrate/payment-form/apple-pay-button/" target="_blank">Apple Pay</a>, or alternative payment method (<a href="https://docs.solidgate.com/payments/integrate/payment-form/apm-buttons/" target="_blank">APM</a>) buttons.
 
 Check our
 * <a href="https://docs.solidgate.com/" target="_blank">Payment guide</a> to understand business value better
@@ -72,7 +72,7 @@ const merchantData: InitConfig['merchantData'] = {
 
 #### Custom containers
 
-To render <a href="https://docs.solidgate.com/payments/integrate/payment-form/google-pay-button/" target="_blank">Google Pay</a>, <a href="https://docs.solidgate.com/payments/integrate/payment-form/apple-pay-button/" target="_blank">Apple Pay</a>, or <a href="https://docs.solidgate.com/payments/integrate/payment-form/paypal-button/" target="_blank">PayPal</a> buttons in separate containers, define Payment as an asynchronous component and pass references to the container elements.
+To render <a href="https://docs.solidgate.com/payments/integrate/payment-form/google-pay-button/" target="_blank">Google Pay</a>, <a href="https://docs.solidgate.com/payments/integrate/payment-form/apple-pay-button/" target="_blank">Apple Pay</a>, or <a href="https://docs.solidgate.com/payments/integrate/payment-form/apm-buttons/#paypal-button" target="_blank">PayPal</a> buttons in separate containers, define payment as an asynchronous component and pass references to the container elements.
 
 ```vue
 <template>
@@ -88,19 +88,19 @@ To render <a href="https://docs.solidgate.com/payments/integrate/payment-form/go
 </template>
 
 <script lang="ts" setup>
-import { ref, defineAsyncComponent } from 'vue'
-import { InitConfig } from '@solidgate/vue-sdk'
-const Payment = defineAsyncComponent(() => import('@solidgate/vue-sdk'))
+  import { ref, defineAsyncComponent } from 'vue'
+  import { InitConfig } from '@solidgate/vue-sdk'
+  const Payment = defineAsyncComponent(() => import('@solidgate/vue-sdk'))
 
-const googleButton = ref<HTMLDivElement>()
-const appleButton = ref<HTMLDivElement>()
-const paypalButton = ref<HTMLDivElement>()
+  const googleButton = ref<HTMLDivElement>()
+  const appleButton = ref<HTMLDivElement>()
+  const paypalButton = ref<HTMLDivElement>()
 
-const merchantData: InitConfig['merchantData'] = {
-  merchant: '<<--YOUR MERCHANT ID-->>',
-  signature: '<<--YOUR SIGNATURE OF THE REQUEST-->>',
-  paymentIntent: '<<--YOUR PAYMENT INTENT-->>'
-}
+  const merchantData: InitConfig['merchantData'] = {
+    merchant: '<<--YOUR MERCHANT ID-->>',
+    signature: '<<--YOUR SIGNATURE OF THE REQUEST-->>',
+    paymentIntent: '<<--YOUR PAYMENT INTENT-->>'
+  }
 </script>
 ```
 
@@ -114,13 +114,13 @@ Render a <a href="https://docs.solidgate.com/payments/integrate/payment-form/res
 </template>
 
 <script lang="ts" setup>
-import { Resign, ResignRequest } from '@solidgate/vue-sdk'
+  import { Resign, ResignRequest } from '@solidgate/vue-sdk'
 
-const resignRequest: ResignRequest = {
-  merchant: '<<--YOUR MERCHANT ID-->>',
-  signature: '<<--YOUR SIGNATURE OF THE REQUEST-->>',
-  resignIntent: '<<--YOUR RESIGN INTENT-->>'
-}
+  const resignRequest: ResignRequest = {
+    merchant: '<<--YOUR MERCHANT ID-->>',
+    signature: '<<--YOUR SIGNATURE OF THE REQUEST-->>',
+    resignIntent: '<<--YOUR RESIGN INTENT-->>'
+  }
 </script>
 ```
 
