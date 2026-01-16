@@ -22,7 +22,8 @@ const initPaymentForm = async (
     applePayContainerRef,
     paypalContainerRef,
     pixContainerRef,
-    bizumContainerRef
+    bizumContainerRef,
+    blikContainerRef
   } = props
 
   if (!merchantData) {
@@ -88,6 +89,15 @@ const initPaymentForm = async (
   )
   if (bizumButtonParams) {
     initConfig.bizumButtonParams = bizumButtonParams
+  }
+
+  const blikButtonParams = getPayButtonParams(
+    props,
+    'blikButtonParams',
+    blikContainerRef
+  )
+  if (blikButtonParams) {
+    initConfig.blikButtonParams = blikButtonParams
   }
 
   return clientSdk.init(initConfig)
