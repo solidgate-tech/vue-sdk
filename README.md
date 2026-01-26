@@ -77,7 +77,7 @@ To render <a href="https://docs.solidgate.com/payments/integrate/payment-form/go
 ```vue
 <template>
   <Payment
-    :merchan-data="merchantData"
+    :merchant-data="merchantData"
     :google-pay-container-ref="googleButton"
     :apple-pay-container-ref="appleButton"
     :paypal-container-ref="paypalButton"
