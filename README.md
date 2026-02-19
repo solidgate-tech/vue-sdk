@@ -81,10 +81,12 @@ To render <a href="https://docs.solidgate.com/payments/integrate/payment-form/go
     :google-pay-container-ref="googleButton"
     :apple-pay-container-ref="appleButton"
     :paypal-container-ref="paypalButton"
+    :mbway-container-ref="mbwayButton"
   />
   <div ref="googleButton" />
   <div ref="appleButton" />
   <div ref="paypalButton" />
+  <div ref="mbwayButton" />
 </template>
 
 <script lang="ts" setup>
@@ -95,6 +97,7 @@ To render <a href="https://docs.solidgate.com/payments/integrate/payment-form/go
   const googleButton = ref<HTMLDivElement>()
   const appleButton = ref<HTMLDivElement>()
   const paypalButton = ref<HTMLDivElement>()
+  const mbwayButton = ref<HTMLDivElement>()
 
   const merchantData: InitConfig['merchantData'] = {
     merchant: '<<--YOUR MERCHANT ID-->>',

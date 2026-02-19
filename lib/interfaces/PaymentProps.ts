@@ -16,12 +16,14 @@ interface PaymentProps extends Partial<ClientSdkEventsProvider> {
   pixButtonParams?: Omit<InitConfig['pixButtonParams'], 'containerId'>
   bizumButtonParams?: Omit<InitConfig['bizumButtonParams'], 'containerId'>
   blikButtonParams?: Omit<InitConfig['blikButtonParams'], 'containerId'>
+  mbwayButtonParams?: Omit<InitConfig['mbwayButtonParams'], 'containerId'>
   googlePayContainerRef?: HTMLDivElement
   applePayContainerRef?: HTMLDivElement
   paypalContainerRef?: HTMLDivElement
   pixContainerRef?: HTMLDivElement
   bizumContainerRef?: HTMLDivElement
   blikContainerRef?: HTMLDivElement
+  mbwayContainerRef?: HTMLDivElement
   onReadyPaymentInstance?: (paymentInstance: ClientSdkInstance) => void
 }
 

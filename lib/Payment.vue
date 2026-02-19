@@ -46,12 +46,14 @@ const props = withDefaults(
     pixButtonParams?: PaymentProps['pixButtonParams']
     bizumButtonParams?: PaymentProps['bizumButtonParams']
     blikButtonParams?: PaymentProps['blikButtonParams']
+    mbwayButtonParams?: PaymentProps['mbwayButtonParams']
     googlePayContainerRef?: PaymentProps['googlePayContainerRef']
     applePayContainerRef?: PaymentProps['applePayContainerRef']
     paypalContainerRef?: PaymentProps['paypalContainerRef']
     pixContainerRef?: PaymentProps['pixContainerRef']
     bizumContainerRef?: PaymentProps['bizumContainerRef']
     blikContainerRef?: PaymentProps['blikContainerRef']
+    mbwayContainerRef?: PaymentProps['mbwayContainerRef']
     onReadyPaymentInstance?: PaymentProps['onReadyPaymentInstance']
     onPaymentDetails?: (e: PaymentDetailsMessage) => void
     onMounted?: (e: MountedMessage) => void
@@ -114,12 +116,14 @@ const config = {
   pixButtonParams: props.pixButtonParams,
   bizumButtonParams: props.bizumButtonParams,
   blikButtonParams: props.blikButtonParams,
+  mbwayButtonParams: props.mbwayButtonParams,
   googlePayContainerRef: props.googlePayContainerRef,
   applePayContainerRef: props.applePayContainerRef,
   paypalContainerRef: props.paypalContainerRef,
   pixContainerRef: props.pixContainerRef,
   bizumContainerRef: props.bizumContainerRef,
-  blikContainerRef: props.blikContainerRef
+  blikContainerRef: props.blikContainerRef,
+  mbwayContainerRef: props.mbwayContainerRef
 }
 
 const callbacks: ClientSdkEventsProvider = {

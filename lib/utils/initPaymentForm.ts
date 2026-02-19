@@ -23,7 +23,8 @@ const initPaymentForm = async (
     paypalContainerRef,
     pixContainerRef,
     bizumContainerRef,
-    blikContainerRef
+    blikContainerRef,
+    mbwayContainerRef
   } = props
 
   if (!merchantData) {
@@ -98,6 +99,15 @@ const initPaymentForm = async (
   )
   if (blikButtonParams) {
     initConfig.blikButtonParams = blikButtonParams
+  }
+
+  const mbwayButtonParams = getPayButtonParams(
+    props,
+    'mbwayButtonParams',
+    mbwayContainerRef
+  )
+  if (mbwayButtonParams) {
+    initConfig.mbwayButtonParams = mbwayButtonParams
   }
 
   return clientSdk.init(initConfig)
