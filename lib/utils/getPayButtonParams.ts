@@ -7,7 +7,8 @@ import {
   PIX_BUTTON_CONTAINER_ID,
   BIZUM_BUTTON_CONTAINER_ID,
   BLIK_BUTTON_CONTAINER_ID,
-  MBWAY_BUTTON_CONTAINER_ID
+  MBWAY_BUTTON_CONTAINER_ID,
+  PIX_QR_BUTTON_CONTAINER_ID
 } from '../constants'
 
 const payButtonIds = {
@@ -38,6 +39,10 @@ const payButtonIds = {
   mbwayButtonParams: {
     title: 'MBWay',
     id: MBWAY_BUTTON_CONTAINER_ID
+  },
+  pixQrButtonParams: {
+    title: 'Pix QR',
+    id: PIX_QR_BUTTON_CONTAINER_ID
   }
 }
 
@@ -50,6 +55,7 @@ function getPayButtonParams<
     | 'bizumButtonParams'
     | 'blikButtonParams'
     | 'mbwayButtonParams'
+    | 'pixQrButtonParams'
 > (config: InitConfig, key: T, container: HTMLElement | undefined) {
   const payParams = {
     ...(config[key] || {})

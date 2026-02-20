@@ -72,7 +72,7 @@ const merchantData: InitConfig['merchantData'] = {
 
 #### Custom containers
 
-To render <a href="https://docs.solidgate.com/payments/integrate/payment-form/google-pay-button/" target="_blank">Google Pay</a>, <a href="https://docs.solidgate.com/payments/integrate/payment-form/apple-pay-button/" target="_blank">Apple Pay</a>, or <a href="https://docs.solidgate.com/payments/integrate/payment-form/apm-buttons/#paypal-button" target="_blank">PayPal</a> buttons in separate containers, define payment as an asynchronous component and pass references to the container elements.
+To render <a href="https://docs.solidgate.com/payments/integrate/payment-form/google-pay-button/" target="_blank">Google Pay</a>, <a href="https://docs.solidgate.com/payments/integrate/payment-form/apple-pay-button/" target="_blank">Apple Pay</a>, <a href="https://docs.solidgate.com/payments/integrate/payment-form/apm-buttons/#paypal-button" target="_blank">PayPal</a>, <a href="https://docs.solidgate.com/payments/integrate/payment-form/apm-buttons/" target="_blank">MB Way</a>, or <a href="https://docs.solidgate.com/payments/integrate/payment-form/apm-buttons/" target="_blank">Pix QR</a> buttons in separate containers, define payment as an asynchronous component and pass references to the container elements.
 
 ```vue
 <template>
@@ -82,11 +82,13 @@ To render <a href="https://docs.solidgate.com/payments/integrate/payment-form/go
     :apple-pay-container-ref="appleButton"
     :paypal-container-ref="paypalButton"
     :mbway-container-ref="mbwayButton"
+    :pix-qr-container-ref="pixQrButton"
   />
   <div ref="googleButton" />
   <div ref="appleButton" />
   <div ref="paypalButton" />
   <div ref="mbwayButton" />
+  <div ref="pixQrButton" />
 </template>
 
 <script lang="ts" setup>
@@ -98,6 +100,7 @@ To render <a href="https://docs.solidgate.com/payments/integrate/payment-form/go
   const appleButton = ref<HTMLDivElement>()
   const paypalButton = ref<HTMLDivElement>()
   const mbwayButton = ref<HTMLDivElement>()
+  const pixQrButton = ref<HTMLDivElement>()
 
   const merchantData: InitConfig['merchantData'] = {
     merchant: '<<--YOUR MERCHANT ID-->>',

@@ -26,6 +26,10 @@ const MBWAY_BUTTON_CONTAINER_ID = `mbway-button-container_#${
   Math.random() * 10000
 }`
 
+const PIX_QR_BUTTON_CONTAINER_ID = `pix-qr-button-container_#${
+  Math.random() * 10000
+}`
+
 export {
   IFRAME_CONTAINER_ID,
   GOOGLE_PAY_BUTTON_CONTAINER_ID,
@@ -34,5 +38,6 @@ export {
   PIX_BUTTON_CONTAINER_ID,
   BIZUM_BUTTON_CONTAINER_ID,
   BLIK_BUTTON_CONTAINER_ID,
-  MBWAY_BUTTON_CONTAINER_ID
+  MBWAY_BUTTON_CONTAINER_ID,
+  PIX_QR_BUTTON_CONTAINER_ID
 }
