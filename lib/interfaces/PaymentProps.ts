@@ -18,6 +18,7 @@ interface PaymentProps extends Partial<ClientSdkEventsProvider> {
   blikButtonParams?: Omit<InitConfig['blikButtonParams'], 'containerId'>
   mbwayButtonParams?: Omit<InitConfig['mbwayButtonParams'], 'containerId'>
   pixQrButtonParams?: Omit<InitConfig['pixQrButtonParams'], 'containerId'>
+  cashAppButtonParams?: Omit<InitConfig['cashAppButtonParams'], 'containerId'>
   googlePayContainerRef?: HTMLDivElement
   applePayContainerRef?: HTMLDivElement
   paypalContainerRef?: HTMLDivElement
@@ -26,6 +27,7 @@ interface PaymentProps extends Partial<ClientSdkEventsProvider> {
   blikContainerRef?: HTMLDivElement
   mbwayContainerRef?: HTMLDivElement
   pixQrContainerRef?: HTMLDivElement
+  cashAppContainerRef?: HTMLDivElement
   onReadyPaymentInstance?: (paymentInstance: ClientSdkInstance) => void
 }
 

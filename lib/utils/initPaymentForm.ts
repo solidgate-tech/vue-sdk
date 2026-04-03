@@ -25,7 +25,8 @@ const initPaymentForm = async (
     bizumContainerRef,
     blikContainerRef,
     mbwayContainerRef,
-    pixQrContainerRef
+    pixQrContainerRef,
+    cashAppContainerRef
   } = props
 
   if (!merchantData) {
@@ -118,6 +119,15 @@ const initPaymentForm = async (
   )
   if (pixQrButtonParams) {
     initConfig.pixQrButtonParams = pixQrButtonParams
+  }
+
+  const cashAppButtonParams = getPayButtonParams(
+    props,
+    'cashAppButtonParams',
+    cashAppContainerRef
+  )
+  if (cashAppButtonParams) {
+    initConfig.cashAppButtonParams = cashAppButtonParams
   }
 
   return clientSdk.init(initConfig)
