@@ -58,6 +58,8 @@ const props = withDefaults(
     mbwayContainerRef?: PaymentProps['mbwayContainerRef']
     pixQrContainerRef?: PaymentProps['pixQrContainerRef']
     cashAppContainerRef?: PaymentProps['cashAppContainerRef']
+    pixAutomaticoButtonParams?: PaymentProps['pixAutomaticoButtonParams']
+    pixAutomaticoContainerRef?: PaymentProps['pixAutomaticoContainerRef']
     onReadyPaymentInstance?: PaymentProps['onReadyPaymentInstance']
     onPaymentDetails?: (e: PaymentDetailsMessage) => void
     onMounted?: (e: MountedMessage) => void
@@ -123,6 +125,7 @@ const config = {
   mbwayButtonParams: props.mbwayButtonParams,
   pixQrButtonParams: props.pixQrButtonParams,
   cashAppButtonParams: props.cashAppButtonParams,
+  pixAutomaticoButtonParams: props.pixAutomaticoButtonParams,
   googlePayContainerRef: props.googlePayContainerRef,
   applePayContainerRef: props.applePayContainerRef,
   paypalContainerRef: props.paypalContainerRef,
@@ -131,7 +134,8 @@ const config = {
   blikContainerRef: props.blikContainerRef,
   mbwayContainerRef: props.mbwayContainerRef,
   pixQrContainerRef: props.pixQrContainerRef,
-  cashAppContainerRef: props.cashAppContainerRef
+  cashAppContainerRef: props.cashAppContainerRef,
+  pixAutomaticoContainerRef: props.pixAutomaticoContainerRef
 }
 
 const callbacks: ClientSdkEventsProvider = {

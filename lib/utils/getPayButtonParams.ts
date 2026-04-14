@@ -9,7 +9,8 @@ import {
   BLIK_BUTTON_CONTAINER_ID,
   MBWAY_BUTTON_CONTAINER_ID,
   PIX_QR_BUTTON_CONTAINER_ID,
-  CASHAPP_BUTTON_CONTAINER_ID
+  CASHAPP_BUTTON_CONTAINER_ID,
+  PIX_AUTOMATICO_BUTTON_CONTAINER_ID
 } from '../constants'
 
 const payButtonIds = {
@@ -48,6 +49,10 @@ const payButtonIds = {
   cashAppButtonParams: {
     title: 'CashApp',
     id: CASHAPP_BUTTON_CONTAINER_ID
+  },
+  pixAutomaticoButtonParams: {
+    title: 'Pix Automático',
+    id: PIX_AUTOMATICO_BUTTON_CONTAINER_ID
   }
 }
 
@@ -62,6 +67,7 @@ function getPayButtonParams<
     | 'mbwayButtonParams'
     | 'pixQrButtonParams'
     | 'cashAppButtonParams'
+    | 'pixAutomaticoButtonParams'
 > (config: InitConfig, key: T, container: HTMLElement | undefined) {
   const payParams = {
     ...(config[key] || {})

@@ -26,7 +26,8 @@ const initPaymentForm = async (
     blikContainerRef,
     mbwayContainerRef,
     pixQrContainerRef,
-    cashAppContainerRef
+    cashAppContainerRef,
+    pixAutomaticoContainerRef
   } = props
 
   if (!merchantData) {
@@ -128,6 +129,15 @@ const initPaymentForm = async (
   )
   if (cashAppButtonParams) {
     initConfig.cashAppButtonParams = cashAppButtonParams
+  }
+
+  const pixAutomaticoButtonParams = getPayButtonParams(
+    props,
+    'pixAutomaticoButtonParams',
+    pixAutomaticoContainerRef
+  )
+  if (pixAutomaticoButtonParams) {
+    initConfig.pixAutomaticoButtonParams = pixAutomaticoButtonParams
   }
 
   return clientSdk.init(initConfig)
