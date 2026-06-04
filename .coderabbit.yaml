@@ -14,7 +14,7 @@ reviews:
   assess_linked_issues: true
   related_prs: true
   suggested_reviewers: true
-  auto_assign_reviewers: true
+  auto_assign_reviewers: false
   poem: false
   in_progress_fortune: false
   abort_on_close: true
