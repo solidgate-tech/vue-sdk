@@ -5,6 +5,7 @@ import {
   APPLE_PAY_BUTTON_CONTAINER_ID,
   PAYPAL_BUTTON_CONTAINER_ID,
   PIX_BUTTON_CONTAINER_ID,
+  UPI_BUTTON_CONTAINER_ID,
   BIZUM_BUTTON_CONTAINER_ID,
   BLIK_BUTTON_CONTAINER_ID,
   MBWAY_BUTTON_CONTAINER_ID,
@@ -29,6 +30,10 @@ const payButtonIds = {
   pixButtonParams: {
     title: 'Pix',
     id: PIX_BUTTON_CONTAINER_ID
+  },
+  upiButtonParams: {
+    title: 'UPI',
+    id: UPI_BUTTON_CONTAINER_ID
   },
   bizumButtonParams: {
     title: 'Bizum',
@@ -62,6 +67,7 @@ function getPayButtonParams<
     | 'applePayButtonParams'
     | 'paypalButtonParams'
     | 'pixButtonParams'
+    | 'upiButtonParams'
     | 'bizumButtonParams'
     | 'blikButtonParams'
     | 'mbwayButtonParams'

@@ -14,6 +14,8 @@ const PAYPAL_BUTTON_CONTAINER_ID = `paypal-button-container_#${
 
 const PIX_BUTTON_CONTAINER_ID = `pix-button-container_#${Math.random() * 10000}`
 
+const UPI_BUTTON_CONTAINER_ID = `upi-button-container_#${Math.random() * 10000}`
+
 const BIZUM_BUTTON_CONTAINER_ID = `bizum-button-container_#${
   Math.random() * 10000
 }`
@@ -44,6 +46,7 @@ export {
   APPLE_PAY_BUTTON_CONTAINER_ID,
   PAYPAL_BUTTON_CONTAINER_ID,
   PIX_BUTTON_CONTAINER_ID,
+  UPI_BUTTON_CONTAINER_ID,
   BIZUM_BUTTON_CONTAINER_ID,
   BLIK_BUTTON_CONTAINER_ID,
   MBWAY_BUTTON_CONTAINER_ID,

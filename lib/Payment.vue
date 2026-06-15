@@ -44,6 +44,7 @@ const props = withDefaults(
     applePayButtonParams?: PaymentProps['applePayButtonParams']
     paypalButtonParams?: PaymentProps['paypalButtonParams']
     pixButtonParams?: PaymentProps['pixButtonParams']
+    upiButtonParams?: PaymentProps['upiButtonParams']
     bizumButtonParams?: PaymentProps['bizumButtonParams']
     blikButtonParams?: PaymentProps['blikButtonParams']
     mbwayButtonParams?: PaymentProps['mbwayButtonParams']
@@ -53,6 +54,7 @@ const props = withDefaults(
     applePayContainerRef?: PaymentProps['applePayContainerRef']
     paypalContainerRef?: PaymentProps['paypalContainerRef']
     pixContainerRef?: PaymentProps['pixContainerRef']
+    upiContainerRef?: PaymentProps['upiContainerRef']
     bizumContainerRef?: PaymentProps['bizumContainerRef']
     blikContainerRef?: PaymentProps['blikContainerRef']
     mbwayContainerRef?: PaymentProps['mbwayContainerRef']
@@ -120,6 +122,7 @@ const config = {
   applePayButtonParams: props.applePayButtonParams,
   paypalButtonParams: props.paypalButtonParams,
   pixButtonParams: props.pixButtonParams,
+  upiButtonParams: props.upiButtonParams,
   bizumButtonParams: props.bizumButtonParams,
   blikButtonParams: props.blikButtonParams,
   mbwayButtonParams: props.mbwayButtonParams,
@@ -130,6 +133,7 @@ const config = {
   applePayContainerRef: props.applePayContainerRef,
   paypalContainerRef: props.paypalContainerRef,
   pixContainerRef: props.pixContainerRef,
+  upiContainerRef: props.upiContainerRef,
   bizumContainerRef: props.bizumContainerRef,
   blikContainerRef: props.blikContainerRef,
   mbwayContainerRef: props.mbwayContainerRef,

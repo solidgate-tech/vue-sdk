@@ -22,6 +22,7 @@ const initPaymentForm = async (
     applePayContainerRef,
     paypalContainerRef,
     pixContainerRef,
+    upiContainerRef,
     bizumContainerRef,
     blikContainerRef,
     mbwayContainerRef,
@@ -84,6 +85,15 @@ const initPaymentForm = async (
   )
   if (pixButtonParams) {
     initConfig.pixButtonParams = pixButtonParams
+  }
+
+  const upiButtonParams = getPayButtonParams(
+    props,
+    'upiButtonParams',
+    upiContainerRef
+  )
+  if (upiButtonParams) {
+    initConfig.upiButtonParams = upiButtonParams
   }
 
   const bizumButtonParams = getPayButtonParams(
