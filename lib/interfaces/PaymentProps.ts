@@ -24,6 +24,7 @@ interface PaymentProps extends Partial<ClientSdkEventsProvider> {
     InitConfig['pixAutomaticoButtonParams'],
     'containerId'
   >
+  clickToPayButtonParams?: InitConfig['clickToPayButtonParams']
   googlePayContainerRef?: HTMLDivElement
   applePayContainerRef?: HTMLDivElement
   paypalContainerRef?: HTMLDivElement

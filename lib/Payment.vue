@@ -62,6 +62,7 @@ const props = withDefaults(
     cashAppContainerRef?: PaymentProps['cashAppContainerRef']
     pixAutomaticoButtonParams?: PaymentProps['pixAutomaticoButtonParams']
     pixAutomaticoContainerRef?: PaymentProps['pixAutomaticoContainerRef']
+    clickToPayButtonParams?: PaymentProps['clickToPayButtonParams']
     onReadyPaymentInstance?: PaymentProps['onReadyPaymentInstance']
     onPaymentDetails?: (e: PaymentDetailsMessage) => void
     onMounted?: (e: MountedMessage) => void
@@ -129,6 +130,7 @@ const config = {
   pixQrButtonParams: props.pixQrButtonParams,
   cashAppButtonParams: props.cashAppButtonParams,
   pixAutomaticoButtonParams: props.pixAutomaticoButtonParams,
+  clickToPayButtonParams: props.clickToPayButtonParams,
   googlePayContainerRef: props.googlePayContainerRef,
   applePayContainerRef: props.applePayContainerRef,
   paypalContainerRef: props.paypalContainerRef,

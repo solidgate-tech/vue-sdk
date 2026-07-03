@@ -28,7 +28,8 @@ const initPaymentForm = async (
     mbwayContainerRef,
     pixQrContainerRef,
     cashAppContainerRef,
-    pixAutomaticoContainerRef
+    pixAutomaticoContainerRef,
+    clickToPayButtonParams
   } = props
 
   if (!merchantData) {
@@ -48,7 +49,8 @@ const initPaymentForm = async (
       ...(width && { width })
     },
     ...(formParams && { formParams }),
-    ...(styles && { styles })
+    ...(styles && { styles }),
+    ...(clickToPayButtonParams && { clickToPayButtonParams })
   }
 
   const googleButtonParams = getPayButtonParams(
