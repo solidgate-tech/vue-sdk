@@ -1,10 +1,16 @@
 import { ClientSdkInstance, MessageType } from '@solidgate/client-sdk-loader'
 
-import ClientSdkEventsProvider from '../types/ClientSdkEventsProvider'
+import ClientSdkEventsProvider, {
+  WalletCardTypeCallback
+} from '../types/ClientSdkEventsProvider'
+
+export const WALLET_CARD_TYPE_EVENT = 'walletCardType'
 
 const onSubscribe = (
   sdkInstanceValue: ClientSdkInstance,
-  callbacks: Partial<ClientSdkEventsProvider>
+  callbacks: Partial<ClientSdkEventsProvider> & {
+    onWalletCardType?: WalletCardTypeCallback
+  }
 ): void => {
   const {
     onMounted = () => {},
@@ -19,7 +25,8 @@ const onSubscribe = (
     onInteraction = () => {},
     onOrderStatus = () => {},
     onResize = () => {},
-    onCard = () => {}
+    onCard = () => {},
+    onWalletCardType = () => {}
   } = callbacks
 
   sdkInstanceValue.on(MessageType.Mounted, (e) => onMounted(e.data))
@@ -39,6 +46,9 @@ const onSubscribe = (
   sdkInstanceValue.on(MessageType.OrderStatus, (e) => onOrderStatus(e.data))
   sdkInstanceValue.on(MessageType.Resize, (e) => onResize(e.data))
   sdkInstanceValue.on(MessageType.Card, (e) => onCard(e.data))
+  sdkInstanceValue.on(WALLET_CARD_TYPE_EVENT, (event, pauseUntil) =>
+    onWalletCardType(event.data, pauseUntil)
+  )
 }
 
 export default onSubscribe

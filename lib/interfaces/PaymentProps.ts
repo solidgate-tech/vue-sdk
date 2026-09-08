@@ -1,6 +1,8 @@
 import { ClientSdkInstance, InitConfig } from '@solidgate/client-sdk-loader'
 
-import ClientSdkEventsProvider from '../types/ClientSdkEventsProvider'
+import ClientSdkEventsProvider, {
+  WalletCardTypeCallback
+} from '../types/ClientSdkEventsProvider'
 
 interface PaymentProps extends Partial<ClientSdkEventsProvider> {
   merchantData: InitConfig['merchantData']
@@ -36,6 +38,7 @@ interface PaymentProps extends Partial<ClientSdkEventsProvider> {
   pixQrContainerRef?: HTMLDivElement
   cashAppContainerRef?: HTMLDivElement
   pixAutomaticoContainerRef?: HTMLDivElement
+  onWalletCardType?: WalletCardTypeCallback
   onReadyPaymentInstance?: (paymentInstance: ClientSdkInstance) => void
 }
 

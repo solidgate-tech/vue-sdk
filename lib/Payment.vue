@@ -30,7 +30,9 @@ import { IFRAME_CONTAINER_ID } from './constants'
 
 import initPaymentForm from './utils/initPaymentForm'
 import onSubscribe from './utils/onSubscribe'
-import ClientSdkEventsProvider from './types/ClientSdkEventsProvider'
+import ClientSdkEventsProvider, {
+  WalletCardTypeCallback
+} from './types/ClientSdkEventsProvider'
 
 import './boot'
 
@@ -77,6 +79,7 @@ const props = withDefaults(
     onOrderStatus?: (e: OrderStatusMessage) => void
     onResize?: (e: ResizeMessage) => void
     onCard?: (e: CardMessage) => void
+    onWalletCardType?: PaymentProps['onWalletCardType']
   }>(),
   {
     onMounted: () => {},
@@ -91,7 +94,8 @@ const props = withDefaults(
     onInteraction: () => {},
     onOrderStatus: () => {},
     onResize: () => {},
-    onCard: () => {}
+    onCard: () => {},
+    onWalletCardType: () => {}
   }
 )
 
@@ -144,7 +148,9 @@ const config = {
   pixAutomaticoContainerRef: props.pixAutomaticoContainerRef
 }
 
-const callbacks: ClientSdkEventsProvider = {
+const callbacks: ClientSdkEventsProvider & {
+  onWalletCardType: WalletCardTypeCallback
+} = {
   onMounted: (e) => props.onMounted && props.onMounted(e),
   onError: (e) => props.onError && props.onError(e),
   onSuccess: (e) => props.onSuccess && props.onSuccess(e),
@@ -158,7 +164,9 @@ const callbacks: ClientSdkEventsProvider = {
   onInteraction: (e) => props.onInteraction && props.onInteraction(e),
   onOrderStatus: (e) => props.onOrderStatus && props.onOrderStatus(e),
   onResize: (e) => props.onResize && props.onResize(e),
-  onCard: (e) => props.onCard && props.onCard(e)
+  onCard: (e) => props.onCard && props.onCard(e),
+  onWalletCardType: (data, pauseUntil) =>
+    props.onWalletCardType && props.onWalletCardType(data, pauseUntil)
 }
 
 onMounted(async () => {

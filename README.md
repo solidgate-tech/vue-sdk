@@ -110,6 +110,52 @@ To render <a href="https://docs.solidgate.com/payments/integrate/payment-form/go
 </script>
 ```
 
+#### Wallet card type
+
+Apple Pay and Google Pay report the payer's card funding type before the charge. Handle
+`walletCardType` to inspect it and, optionally, pause the wallet flow with `pauseUntil`
+while you call an update intent method (`update`, `updateCheckout`). The side effect has
+a 25 s budget, measured from the moment the event fired.
+
+```vue
+<template>
+  <Payment
+    :merchant-data="merchantData"
+    :google-pay-button-params="googlePayButtonParams"
+    :on-wallet-card-type="onWalletCardType"
+    @ready-payment-instance="form = $event"
+  />
+</template>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+import Payment, {
+  ClientSdkInstance,
+  InitConfig,
+  WalletCardTypeCallback
+} from '@solidgate/vue-sdk'
+
+const form = ref<ClientSdkInstance>()
+
+// required when you update the intent inside the event
+const googlePayButtonParams: InitConfig['googlePayButtonParams'] = {
+  totalPriceStatus: 'TOTAL_PRICE_STATUS_ESTIMATED'
+}
+
+const onWalletCardType: WalletCardTypeCallback = (data, pauseUntil) => {
+  if (data.card.type === 'unknown') {
+    return // no intent update - the wallet continues immediately
+  }
+
+  pauseUntil(async () => {
+    await form.value?.update({ partialIntent: intentFor(data.card.type) })
+  })
+}
+</script>
+```
+
+`@wallet-card-type="onWalletCardType"` binds the same prop, so either style works.
+
 ### Resign form
 
 Render a <a href="https://docs.solidgate.com/payments/integrate/payment-form/resign-payment-form/" target="_blank">resign payment form</a> component in your Vue3 project.
