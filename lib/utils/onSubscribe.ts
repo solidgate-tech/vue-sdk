@@ -26,6 +26,7 @@ const onSubscribe = (
     onOrderStatus = () => {},
     onResize = () => {},
     onCard = () => {},
+    onInvoicePreview = () => {},
     onWalletCardType = () => {}
   } = callbacks
 
@@ -46,6 +47,9 @@ const onSubscribe = (
   sdkInstanceValue.on(MessageType.OrderStatus, (e) => onOrderStatus(e.data))
   sdkInstanceValue.on(MessageType.Resize, (e) => onResize(e.data))
   sdkInstanceValue.on(MessageType.Card, (e) => onCard(e.data))
+  sdkInstanceValue.on(MessageType.InvoicePreview, (e) =>
+    onInvoicePreview(e.data)
+  )
   sdkInstanceValue.on(WALLET_CARD_TYPE_EVENT, (event, pauseUntil) =>
     onWalletCardType(event.data, pauseUntil)
   )

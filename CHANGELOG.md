@@ -1,3 +1,9 @@
+**1.36.0**
+
+Added **invoicePreview** event and **updateCheckout** method support:
+- Added the **invoicePreview** event to the **Payment** component, bindable as **@invoice-preview** or the **onInvoicePreview** prop
+- Added the **updateCheckout** method to **ClientSdkInstance**, available through **@ready-payment-instance**
+
 **1.35.0**
 
 Added `onWalletCardType` to the `Payment` component input properties. Apple Pay and Google Pay report the payer's card funding type before the charge, and the callback receives `(data, pauseUntil)` - call `pauseUntil` to hold the wallet flow while an update intent method resolves. Also exposes `totalPriceStatus` in `googlePayButtonParams`, required when the intent is updated inside the event.

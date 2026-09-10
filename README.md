@@ -156,6 +156,49 @@ const onWalletCardType: WalletCardTypeCallback = (data, pauseUntil) => {
 
 `@wallet-card-type="onWalletCardType"` binds the same prop, so either style works.
 
+#### Checkout updates
+
+Change the checkout line items, discounts or subscription data after the form is mounted
+with `updateCheckout`.
+
+The invoice preview itself arrives through the `invoicePreview` event. It is sent by the
+SDK during the form initialization process.
+
+```vue
+<template>
+  <Payment
+    :merchant-data="merchantData"
+    @invoice-preview="onInvoicePreview"
+    @ready-payment-instance="form = $event"
+  />
+</template>
+
+<script lang="ts" setup>
+import { ref } from 'vue'
+import Payment, {
+  ClientSdkInstance,
+  InvoicePreviewMessage,
+  UpdateCheckoutConfig
+} from '@solidgate/vue-sdk'
+
+const form = ref<ClientSdkInstance>()
+
+const onInvoicePreview = (e: InvoicePreviewMessage) => {
+  console.log(e.invoicePreview.total, e.invoicePreview.currency)
+}
+
+const changeQuantity = async (quantity: number) => {
+  const config: UpdateCheckoutConfig = {
+    lineItems: [{ productPriceId: 'price_id', quantity }]
+  }
+
+  await form.value!.updateCheckout(config)
+}
+</script>
+```
+
+`:on-invoice-preview="onInvoicePreview"` binds the same prop, so either style works.
+
 ### Resign form
 
 Render a <a href="https://docs.solidgate.com/payments/integrate/payment-form/resign-payment-form/" target="_blank">resign payment form</a> component in your Vue3 project.

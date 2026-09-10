@@ -21,6 +21,7 @@ import {
   ErrorMessage,
   FailMessage,
   CardMessage,
+  InvoicePreviewMessage,
   ClientSdkInstance
 } from '@solidgate/client-sdk-loader'
 
@@ -79,6 +80,7 @@ const props = withDefaults(
     onOrderStatus?: (e: OrderStatusMessage) => void
     onResize?: (e: ResizeMessage) => void
     onCard?: (e: CardMessage) => void
+    onInvoicePreview?: (e: InvoicePreviewMessage) => void
     onWalletCardType?: PaymentProps['onWalletCardType']
   }>(),
   {
@@ -95,6 +97,7 @@ const props = withDefaults(
     onOrderStatus: () => {},
     onResize: () => {},
     onCard: () => {},
+    onInvoicePreview: () => {},
     onWalletCardType: () => {}
   }
 )
@@ -113,6 +116,7 @@ const emit = defineEmits<{
   (e: 'orderStatus', payload: OrderStatusMessage): void
   (e: 'resize', payload: ResizeMessage): void
   (e: 'card', payload: CardMessage): void
+  (e: 'invoicePreview', payload: InvoicePreviewMessage): void
   (e: 'readyPaymentInstance', payload: ClientSdkInstance): void
 }>()
 
@@ -165,6 +169,7 @@ const callbacks: ClientSdkEventsProvider & {
   onOrderStatus: (e) => props.onOrderStatus && props.onOrderStatus(e),
   onResize: (e) => props.onResize && props.onResize(e),
   onCard: (e) => props.onCard && props.onCard(e),
+  onInvoicePreview: (e) => props.onInvoicePreview && props.onInvoicePreview(e),
   onWalletCardType: (data, pauseUntil) =>
     props.onWalletCardType && props.onWalletCardType(data, pauseUntil)
 }

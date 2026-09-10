@@ -96,21 +96,22 @@ const resignConfig = {
   styles: props.styles
 }
 
-const callbacks: Omit<ClientSdkEventsProvider, 'onCard'> = {
-  onMounted: (e) => props.onMounted && props.onMounted(e),
-  onError: (e) => props.onError && props.onError(e),
-  onSuccess: (e) => props.onSuccess && props.onSuccess(e),
-  onFail: (e) => props.onFail && props.onFail(e),
-  onSubmit: (e) => props.onSubmit && props.onSubmit(e),
-  onVerify: (e) => props.onVerify && props.onVerify(e),
-  onCustomStylesAppended: (e) =>
-    props.onCustomStylesAppended && props.onCustomStylesAppended(e),
-  onFormRedirect: (e) => props.onFormRedirect && props.onFormRedirect(e),
-  onInteraction: (e) => props.onInteraction && props.onInteraction(e),
-  onOrderStatus: (e) => props.onOrderStatus && props.onOrderStatus(e),
-  onResize: (e) => props.onResize && props.onResize(e),
-  onPaymentDetails: (e) => props.onPaymentDetails && props.onPaymentDetails(e)
-}
+const callbacks: Omit<ClientSdkEventsProvider, 'onCard' | 'onInvoicePreview'> =
+  {
+    onMounted: (e) => props.onMounted && props.onMounted(e),
+    onError: (e) => props.onError && props.onError(e),
+    onSuccess: (e) => props.onSuccess && props.onSuccess(e),
+    onFail: (e) => props.onFail && props.onFail(e),
+    onSubmit: (e) => props.onSubmit && props.onSubmit(e),
+    onVerify: (e) => props.onVerify && props.onVerify(e),
+    onCustomStylesAppended: (e) =>
+      props.onCustomStylesAppended && props.onCustomStylesAppended(e),
+    onFormRedirect: (e) => props.onFormRedirect && props.onFormRedirect(e),
+    onInteraction: (e) => props.onInteraction && props.onInteraction(e),
+    onOrderStatus: (e) => props.onOrderStatus && props.onOrderStatus(e),
+    onResize: (e) => props.onResize && props.onResize(e),
+    onPaymentDetails: (e) => props.onPaymentDetails && props.onPaymentDetails(e)
+  }
 
 onMounted(async () => {
   try {
