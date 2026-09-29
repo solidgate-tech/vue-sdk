@@ -19,6 +19,7 @@ const onSubscribe = (
     onFail = () => {},
     onSubmit = () => {},
     onVerify = () => {},
+    onProcessing = () => {},
     onCustomStylesAppended = () => {},
     onPaymentDetails = () => {},
     onFormRedirect = () => {},
@@ -36,6 +37,7 @@ const onSubscribe = (
   sdkInstanceValue.on(MessageType.Fail, (e) => onFail(e.data))
   sdkInstanceValue.on(MessageType.Submit, (e) => onSubmit(e.data))
   sdkInstanceValue.on(MessageType.Verify, (e) => onVerify(e.data))
+  sdkInstanceValue.on(MessageType.Processing, (e) => onProcessing(e.data))
   sdkInstanceValue.on(MessageType.CustomStylesAppended, (e) =>
     onCustomStylesAppended(e.data)
   )

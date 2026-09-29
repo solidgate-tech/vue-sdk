@@ -17,6 +17,7 @@ import {
   SuccessMessage,
   ResizeMessage,
   VerifyMessage,
+  ProcessingMessage,
   SubmitMessage,
   ErrorMessage,
   FailMessage,
@@ -47,6 +48,7 @@ const props = withDefaults(
     onFail?: (e: FailMessage) => void
     onSubmit?: (e: SubmitMessage) => void
     onVerify?: (e: VerifyMessage) => void
+    onProcessing?: (e: ProcessingMessage) => void
     onCustomStylesAppended?: (e: CustomStylesAppendedMessage) => void
     onPaymentDetails?: (e: PaymentDetailsMessage) => void
     onFormRedirect?: (e: RedirectMessage) => void
@@ -61,6 +63,7 @@ const props = withDefaults(
     onFail: () => {},
     onSubmit: () => {},
     onVerify: () => {},
+    onProcessing: () => {},
     onCustomStylesAppended: () => {},
     onPaymentDetails: () => {},
     onFormRedirect: () => {},
@@ -77,6 +80,7 @@ const emit = defineEmits<{
   (e: 'fail', payload: FailMessage): void
   (e: 'submit', payload: SubmitMessage): void
   (e: 'verify', payload: VerifyMessage): void
+  (e: 'processing', payload: ProcessingMessage): void
   (e: 'customStylesAppended', payload: CustomStylesAppendedMessage): void
   (e: 'paymentDetails', payload: PaymentDetailsMessage): void
   (e: 'formRedirect', payload: RedirectMessage): void
@@ -104,6 +108,7 @@ const callbacks: Omit<ClientSdkEventsProvider, 'onCard' | 'onInvoicePreview'> =
     onFail: (e) => props.onFail && props.onFail(e),
     onSubmit: (e) => props.onSubmit && props.onSubmit(e),
     onVerify: (e) => props.onVerify && props.onVerify(e),
+    onProcessing: (e) => props.onProcessing && props.onProcessing(e),
     onCustomStylesAppended: (e) =>
       props.onCustomStylesAppended && props.onCustomStylesAppended(e),
     onFormRedirect: (e) => props.onFormRedirect && props.onFormRedirect(e),
