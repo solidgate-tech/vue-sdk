@@ -30,6 +30,7 @@ interface PaymentProps extends Partial<ClientSdkEventsProvider> {
     InitConfig['klarnaNetworkButtonParams'],
     'containerId'
   >
+  gcashButtonParams?: Omit<InitConfig['gcashButtonParams'], 'containerId'>
   clickToPayButtonParams?: InitConfig['clickToPayButtonParams']
   googlePayContainerRef?: HTMLDivElement
   applePayContainerRef?: HTMLDivElement
@@ -43,6 +44,7 @@ interface PaymentProps extends Partial<ClientSdkEventsProvider> {
   cashAppContainerRef?: HTMLDivElement
   pixAutomaticoContainerRef?: HTMLDivElement
   klarnaNetworkContainerRef?: HTMLDivElement
+  gcashContainerRef?: HTMLDivElement
   onWalletCardType?: WalletCardTypeCallback
   onReadyPaymentInstance?: (paymentInstance: ClientSdkInstance) => void
 }

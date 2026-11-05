@@ -12,7 +12,8 @@ import {
   PIX_QR_BUTTON_CONTAINER_ID,
   CASHAPP_BUTTON_CONTAINER_ID,
   PIX_AUTOMATICO_BUTTON_CONTAINER_ID,
-  KLARNA_NETWORK_BUTTON_CONTAINER_ID
+  KLARNA_NETWORK_BUTTON_CONTAINER_ID,
+  GCASH_BUTTON_CONTAINER_ID
 } from '../constants'
 
 const payButtonIds = {
@@ -63,6 +64,10 @@ const payButtonIds = {
   klarnaNetworkButtonParams: {
     title: 'Klarna',
     id: KLARNA_NETWORK_BUTTON_CONTAINER_ID
+  },
+  gcashButtonParams: {
+    title: 'GCash',
+    id: GCASH_BUTTON_CONTAINER_ID
   }
 }
 
@@ -80,6 +85,7 @@ function getPayButtonParams<
     | 'cashAppButtonParams'
     | 'pixAutomaticoButtonParams'
     | 'klarnaNetworkButtonParams'
+    | 'gcashButtonParams'
 > (config: InitConfig, key: T, container: HTMLElement | undefined) {
   const payParams = {
     ...(config[key] || {})
