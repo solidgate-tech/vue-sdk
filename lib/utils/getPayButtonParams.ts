@@ -11,7 +11,8 @@ import {
   MBWAY_BUTTON_CONTAINER_ID,
   PIX_QR_BUTTON_CONTAINER_ID,
   CASHAPP_BUTTON_CONTAINER_ID,
-  PIX_AUTOMATICO_BUTTON_CONTAINER_ID
+  PIX_AUTOMATICO_BUTTON_CONTAINER_ID,
+  KLARNA_NETWORK_BUTTON_CONTAINER_ID
 } from '../constants'
 
 const payButtonIds = {
@@ -58,6 +59,10 @@ const payButtonIds = {
   pixAutomaticoButtonParams: {
     title: 'Pix Automático',
     id: PIX_AUTOMATICO_BUTTON_CONTAINER_ID
+  },
+  klarnaNetworkButtonParams: {
+    title: 'Klarna',
+    id: KLARNA_NETWORK_BUTTON_CONTAINER_ID
   }
 }
 
@@ -74,6 +79,7 @@ function getPayButtonParams<
     | 'pixQrButtonParams'
     | 'cashAppButtonParams'
     | 'pixAutomaticoButtonParams'
+    | 'klarnaNetworkButtonParams'
 > (config: InitConfig, key: T, container: HTMLElement | undefined) {
   const payParams = {
     ...(config[key] || {})

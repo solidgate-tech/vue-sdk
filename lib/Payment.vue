@@ -66,6 +66,8 @@ const props = withDefaults(
     cashAppContainerRef?: PaymentProps['cashAppContainerRef']
     pixAutomaticoButtonParams?: PaymentProps['pixAutomaticoButtonParams']
     pixAutomaticoContainerRef?: PaymentProps['pixAutomaticoContainerRef']
+    klarnaNetworkButtonParams?: PaymentProps['klarnaNetworkButtonParams']
+    klarnaNetworkContainerRef?: PaymentProps['klarnaNetworkContainerRef']
     clickToPayButtonParams?: PaymentProps['clickToPayButtonParams']
     onReadyPaymentInstance?: PaymentProps['onReadyPaymentInstance']
     onPaymentDetails?: (e: PaymentDetailsMessage) => void
@@ -142,6 +144,7 @@ const config = {
   pixQrButtonParams: props.pixQrButtonParams,
   cashAppButtonParams: props.cashAppButtonParams,
   pixAutomaticoButtonParams: props.pixAutomaticoButtonParams,
+  klarnaNetworkButtonParams: props.klarnaNetworkButtonParams,
   clickToPayButtonParams: props.clickToPayButtonParams,
   googlePayContainerRef: props.googlePayContainerRef,
   applePayContainerRef: props.applePayContainerRef,
@@ -153,7 +156,8 @@ const config = {
   mbwayContainerRef: props.mbwayContainerRef,
   pixQrContainerRef: props.pixQrContainerRef,
   cashAppContainerRef: props.cashAppContainerRef,
-  pixAutomaticoContainerRef: props.pixAutomaticoContainerRef
+  pixAutomaticoContainerRef: props.pixAutomaticoContainerRef,
+  klarnaNetworkContainerRef: props.klarnaNetworkContainerRef
 }
 
 const callbacks: ClientSdkEventsProvider & {
