@@ -70,6 +70,8 @@ const props = withDefaults(
     klarnaNetworkContainerRef?: PaymentProps['klarnaNetworkContainerRef']
     gcashButtonParams?: PaymentProps['gcashButtonParams']
     gcashContainerRef?: PaymentProps['gcashContainerRef']
+    satispayButtonParams?: PaymentProps['satispayButtonParams']
+    satispayContainerRef?: PaymentProps['satispayContainerRef']
     clickToPayButtonParams?: PaymentProps['clickToPayButtonParams']
     onReadyPaymentInstance?: PaymentProps['onReadyPaymentInstance']
     onPaymentDetails?: (e: PaymentDetailsMessage) => void
@@ -148,6 +150,7 @@ const config = {
   pixAutomaticoButtonParams: props.pixAutomaticoButtonParams,
   klarnaNetworkButtonParams: props.klarnaNetworkButtonParams,
   gcashButtonParams: props.gcashButtonParams,
+  satispayButtonParams: props.satispayButtonParams,
   clickToPayButtonParams: props.clickToPayButtonParams,
   googlePayContainerRef: props.googlePayContainerRef,
   applePayContainerRef: props.applePayContainerRef,
@@ -161,7 +164,8 @@ const config = {
   cashAppContainerRef: props.cashAppContainerRef,
   pixAutomaticoContainerRef: props.pixAutomaticoContainerRef,
   klarnaNetworkContainerRef: props.klarnaNetworkContainerRef,
-  gcashContainerRef: props.gcashContainerRef
+  gcashContainerRef: props.gcashContainerRef,
+  satispayContainerRef: props.satispayContainerRef
 }
 
 const callbacks: ClientSdkEventsProvider & {

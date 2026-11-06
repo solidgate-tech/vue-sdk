@@ -13,7 +13,8 @@ import {
   CASHAPP_BUTTON_CONTAINER_ID,
   PIX_AUTOMATICO_BUTTON_CONTAINER_ID,
   KLARNA_NETWORK_BUTTON_CONTAINER_ID,
-  GCASH_BUTTON_CONTAINER_ID
+  GCASH_BUTTON_CONTAINER_ID,
+  SATISPAY_BUTTON_CONTAINER_ID
 } from '../constants'
 
 const payButtonIds = {
@@ -68,6 +69,10 @@ const payButtonIds = {
   gcashButtonParams: {
     title: 'GCash',
     id: GCASH_BUTTON_CONTAINER_ID
+  },
+  satispayButtonParams: {
+    title: 'Satispay',
+    id: SATISPAY_BUTTON_CONTAINER_ID
   }
 }
 
@@ -86,6 +91,7 @@ function getPayButtonParams<
     | 'pixAutomaticoButtonParams'
     | 'klarnaNetworkButtonParams'
     | 'gcashButtonParams'
+    | 'satispayButtonParams'
 > (config: InitConfig, key: T, container: HTMLElement | undefined) {
   const payParams = {
     ...(config[key] || {})

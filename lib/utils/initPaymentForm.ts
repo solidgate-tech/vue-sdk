@@ -31,6 +31,7 @@ const initPaymentForm = async (
     pixAutomaticoContainerRef,
     klarnaNetworkContainerRef,
     gcashContainerRef,
+    satispayContainerRef,
     clickToPayButtonParams
   } = props
 
@@ -170,6 +171,15 @@ const initPaymentForm = async (
   )
   if (gcashButtonParams) {
     initConfig.gcashButtonParams = gcashButtonParams
+  }
+
+  const satispayButtonParams = getPayButtonParams(
+    props,
+    'satispayButtonParams',
+    satispayContainerRef
+  )
+  if (satispayButtonParams) {
+    initConfig.satispayButtonParams = satispayButtonParams
   }
 
   return clientSdk.init(initConfig)
